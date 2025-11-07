@@ -8,13 +8,15 @@ plusEl.addEventListener('click', ()=>{
     const newValue = numberEl.textContent;
     const newValueAsNumber = +newValue;
     const newAmount = newValueAsNumber + 1;
-    numberEl.textContent = newAmount;
     mainEl.textContent = "FANCY COUNTER";
+    mainEl.classList.remove('min--limit')
     if (newAmount > 10) {
         mainEl.textContent = "MAXIMUM REACHED";
+        mainEl.classList.add('max--limit')
         newAmount = 10;
       
     }
+    numberEl.textContent = newAmount;
     plusEl.blur();
 })
     
@@ -23,14 +25,15 @@ minusEl.addEventListener('click', ()=>{
     const newValue = numberEl.textContent;
     const newValueAsNumber = +newValue;
     const newAmount = newValueAsNumber - 1;
-    numberEl.textContent = newAmount;
     mainEl.textContent = "FANCY COUNTER";
+    mainEl.classList.remove('max--limit')
     if (newAmount < 0) {
         mainEl.textContent = "MINIMUM REACHED";
         mainEl.classList.add('min--limit')
         newAmount = 0;
        
     }
+    numberEl.textContent = newAmount;
     minusEl.blur();
 })
 
